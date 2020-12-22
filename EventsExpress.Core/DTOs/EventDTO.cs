@@ -40,6 +40,8 @@ namespace EventsExpress.Core.DTOs
 
         public IEnumerable<User> Owners { get; set; }
 
+        public EventStatus EventStatus { get; set; }
+
         public Guid CityId { get; set; }
 
         public City City { get; set; }

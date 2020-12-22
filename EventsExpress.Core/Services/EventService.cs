@@ -298,6 +298,7 @@ namespace EventsExpress.Core.Services
                 .Include(e => e.Visitors)
                     .ThenInclude(v => v.User)
                         .ThenInclude(u => u.Photo)
+                .Include(e => e.StatusHistory)
                 .FirstOrDefault(x => x.Id == eventId));
 
         public IEnumerable<EventDTO> GetAll(EventFilterViewModel model, out int count)
@@ -312,6 +313,7 @@ namespace EventsExpress.Core.Services
                 .Include(e => e.Categories)
                     .ThenInclude(c => c.Category)
                 .Include(e => e.Visitors)
+                .Include(e => e.StatusHistory)
                 .AsNoTracking()
                 .AsQueryable();
 
@@ -338,7 +340,7 @@ namespace EventsExpress.Core.Services
                 ? events.Where(x => x.Visitors.Any(v => v.UserId == model.VisitorId))
                 : events;
 
-            switch (model.Status)
+            /*switch (model.Statuses)
             {
                 case EventStatus.Active:
                     events = events.Where(x => !x.IsBlocked);
@@ -346,7 +348,7 @@ namespace EventsExpress.Core.Services
                 case EventStatus.Blocked:
                     events = events.Where(x => x.IsBlocked);
                     break;
-            }
+            }*/
 
             if (model.Categories != null)
             {

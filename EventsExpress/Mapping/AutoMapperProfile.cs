@@ -110,7 +110,8 @@ namespace EventsExpress.Mapping
                                 UnitName = x.UnitOfMeasuring.UnitName,
                                 ShortName = x.UnitOfMeasuring.ShortName,
                             },
-                        })));
+                        })))
+                .ForMember(dest => dest.EventStatus, opt => opt.MapFrom(src => src.StatusHistory.LastOrDefault().EventStatus));
 
             CreateMap<EventDTO, Event>()
                 .ForMember(dest => dest.Photo, opt => opt.Ignore())

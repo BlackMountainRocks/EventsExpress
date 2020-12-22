@@ -133,7 +133,7 @@ namespace EventsExpress.Controllers
         public IActionResult All([FromQuery] EventFilterViewModel filter)
         {
             filter.PageSize = 6;
-
+            return Forbid();
             // TODO : Add this functionality on UI
             filter.OwnerId = null;
             filter.VisitorId = null;
@@ -145,7 +145,7 @@ namespace EventsExpress.Controllers
                     filter.DateFrom = DateTime.Today;
                 }
 
-                if (filter.Status != EventStatus.Active)
+                if (filter.Statuses.Count != 0)
                 {
                     return Forbid();
                 }

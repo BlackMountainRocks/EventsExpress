@@ -1,5 +1,4 @@
-﻿using System;
-using EventsExpress.Db.Entities;
+﻿using EventsExpress.Db.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace EventsExpress.Db.EF
@@ -185,7 +184,6 @@ namespace EventsExpress.Db.EF
                 .HasOne(uei => uei.Inventory)
                 .WithMany(i => i.UserEventInventories)
                 .HasForeignKey(uei => uei.InventoryId).OnDelete(DeleteBehavior.Restrict);
-
         }
     }
 }

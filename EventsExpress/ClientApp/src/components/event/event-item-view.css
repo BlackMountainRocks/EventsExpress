@@ -42,3 +42,7 @@
 .clear-backgroud:hover {
   background-color: #ebebeb;
 }
+
+.cancel-text {
+  font-size: 24px;
+}

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using EventsExpress.Db.Enums;
 
 namespace EventsExpress.ViewModels
 {
@@ -30,6 +31,8 @@ namespace EventsExpress.ViewModels
         public int CountVisitor { get; set; }
 
         public bool IsPublic { get; set; }
+
+        public EventStatus EventStatus { get; set; }
 
         public IEnumerable<CategoryViewModel> Categories { get; set; }
     }
